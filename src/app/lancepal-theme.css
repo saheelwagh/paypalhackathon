@@ -1,0 +1,216 @@
+/* Shared Lancepal surfaces. Feature workspaces keep their own layout and hierarchy. */
+:root {
+  color-scheme: dark;
+  --lp-bg: #101210;
+  --lp-panel: #191d19;
+  --lp-panel-raised: #20251f;
+  --lp-line: #363d30;
+  --lp-muted: #959b86;
+  --lp-cream: #e8e4ce;
+  --lp-phosphor: #c4f27a;
+  --lp-amber: #e7b765;
+  --lp-red: #e29682;
+  --lp-mono: 'Space Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --lp-sans: 'DM Sans', Arial, sans-serif;
+  --bg: var(--lp-bg);
+  --paper: var(--lp-panel);
+  --ink: var(--lp-cream);
+  --muted: var(--lp-muted);
+  --line: var(--lp-line);
+  --green: var(--lp-phosphor);
+  --sage: #242e20;
+  --orange: var(--lp-amber);
+  font-family: var(--lp-sans);
+  color: var(--lp-cream);
+  background: var(--lp-bg);
+}
+
+.lancepal body { background: var(--lp-bg); color: var(--lp-cream); }
+.lancepal ::selection { background: var(--lp-phosphor); color: var(--lp-bg); }
+.lancepal :is(h1, h2, h3) { color: var(--lp-cream); }
+.lancepal h1 { font-family: var(--lp-mono); font-size: 28px; font-weight: 500; letter-spacing: -.055em; line-height: 1.25; }
+.lancepal h2 { font-family: var(--lp-sans); font-weight: 600; letter-spacing: -.025em; }
+.lancepal h3 { font-family: var(--lp-sans); font-weight: 600; }
+.lancepal p { color: var(--lp-muted); line-height: 1.65; }
+.lancepal :is(button, input, textarea, select) { font-family: var(--lp-sans); }
+.lancepal :is(a, button, input, textarea, select, summary):focus-visible { outline: 2px solid var(--lp-phosphor); outline-offset: 3px; }
+.lancepal :is(input, textarea, select) { color-scheme: dark; }
+.lancepal input::placeholder, .lancepal textarea::placeholder { color: #747d6c; opacity: 1; }
+.lancepal input[type=checkbox], .lancepal input[type=radio] { accent-color: var(--lp-phosphor); }
+.lancepal :is(code, kbd, .timestamp, .audio-time, .sandbox-reference) { font-family: var(--lp-mono); }
+.lancepal :is(.eyebrow, .nav-caption, .metric-label, .project-table-head, .split-stats small, .project-summary small, .field>span, .section-heading code, .portal-totals small) {
+  font-family: var(--lp-mono); font-size: 10px; font-weight: 400; letter-spacing: .08em; color: var(--lp-muted);
+}
+.lancepal :is(.muted, .page-title p, .metric>small, .next-move p, .task-meta, .project-table-row small, .project-table-row>span:not(.badge), .assistant-card p, .assistant-footnote, .mini-event small, .bottom-note p, .page-footer, .client-card>small, .list-row small, .field small, .audio-player small, .audio-time, .utterance p, .scope-compare p, .history-row small, .capability-row p, .journey-checklist, .portal-role, .portal-welcome p) { color: var(--lp-muted); }
+
+/* Shell colors only; sizing and navigation are owned by the shell. */
+.lancepal :is(.sidebar, .topbar) { background: var(--lp-bg); border-color: var(--lp-line); }
+.lancepal :is(.sidebar-bottom, .quiet-note, .profile, .topbar-divider, .page-footer) { border-color: var(--lp-line); }
+.lancepal :is(.brand, .brand-mark, .brand-light, .breadcrumb strong) { color: var(--lp-cream); }
+.lancepal :is(.brand small, .workspace-switch small, .profile small, .breadcrumb, .breadcrumb>span, .side-setting, .quiet-note, .quiet-note button, .quiet-note kbd) { color: var(--lp-muted); }
+.lancepal :is(.workspace-monogram, .nav-count) { color: var(--lp-phosphor); background: #283123; border-color: var(--lp-line); }
+.lancepal .sidebar nav a { color: var(--lp-muted); border-radius: 4px; }
+.lancepal .sidebar nav a:hover { color: var(--lp-cream); background: var(--lp-panel); }
+.lancepal .sidebar nav a.active { color: var(--lp-phosphor); background: #222a1e; }
+.lancepal .sidebar nav a.active:before { background: var(--lp-phosphor); }
+.lancepal .global-search { color: var(--lp-muted); }
+.lancepal .global-search input { color: var(--lp-cream); }
+.lancepal .global-search input::placeholder { color: var(--lp-muted); }
+.lancepal .global-search kbd { color: var(--lp-muted); background: var(--lp-panel); border-color: var(--lp-line); }
+.lancepal .mode-pill { background: var(--lp-panel); color: var(--lp-cream); border: 1px solid var(--lp-line); border-radius: 3px; font-family: var(--lp-mono); font-size: 9px; }
+.lancepal :is(.mode-pill i, .status-dot, .notification-button>i) { background: var(--lp-phosphor); box-shadow: none; }
+.lancepal .demo-ribbon { color: var(--lp-muted); font-size: 10px; line-height: 1.5; border-color: var(--lp-line); }
+.lancepal .demo-ribbon a { color: var(--lp-muted); }
+.lancepal .avatar { color: #172014; border: 1px solid #59634b; font-family: var(--lp-mono); font-weight: 600; border-radius: 4px; }
+.lancepal :is(.footer-flower, .note-flower, .star-symbol) { color: var(--lp-muted); }
+
+/* Shared controls stay compact, keyboard visible, and explicit. */
+.lancepal .button { color: var(--lp-cream); background: var(--lp-panel-raised); border: 1px solid var(--lp-line); border-radius: 4px; box-shadow: none; font-size: 12px; font-weight: 500; padding: 9px 13px; min-height: 36px; }
+.lancepal .button:hover:not(:disabled) { color: var(--lp-cream); background: #2a3225; border-color: #59664a; transform: none; }
+.lancepal .button.primary { color: #14200e; background: var(--lp-phosphor); border-color: var(--lp-phosphor); box-shadow: none; }
+.lancepal .button.primary:hover:not(:disabled) { color: #14200e; background: #d3ff8e; border-color: #d3ff8e; }
+.lancepal .button.small { font-size: 11px; padding: 6px 10px; min-height: 30px; }
+.lancepal .button.assistant-button { color: var(--lp-phosphor); background: #20291d; border-color: #4b5e3b; }
+.lancepal .icon-button { color: var(--lp-muted); border-radius: 4px; }
+.lancepal .icon-button:hover { color: var(--lp-cream); background: var(--lp-panel-raised); }
+.lancepal :is(.text-link, .card .text-link, .back-link, .card-header a, .tool-step a) { color: var(--lp-phosphor); }
+.lancepal .button:disabled { opacity: .45; }
+.lancepal .checkbox { color: var(--lp-cream); font-size: 12px; line-height: 1.65; }
+.lancepal .checkbox input { width: 16px; height: 16px; flex-shrink: 0; }
+.lancepal :is(.field input, .field textarea, .field select, .utterance textarea, .studio-controls select, .studio-agent select) {
+  background: #121611; color: var(--lp-cream); border: 1px solid var(--lp-line); border-radius: 4px; font-size: 13px; line-height: 1.5;
+}
+.lancepal :is(.field input, .field select) { min-height: 39px; }
+.lancepal .field>span { margin-bottom: 8px; }
+.lancepal .field small { font-size: 11px; line-height: 1.5; }
+.lancepal :is(.search, .global-search input) { background: transparent; }
+.lancepal .search { background: #141813; border: 1px solid var(--lp-line); color: var(--lp-muted); border-radius: 4px; }
+.lancepal .search input { color: var(--lp-cream); font-size: 12px; }
+.lancepal .search input::placeholder { color: var(--lp-muted); }
+.lancepal .tabs { border-color: var(--lp-line); }
+.lancepal .tabs button { color: var(--lp-muted); font-family: var(--lp-mono); font-size: 11px; }
+.lancepal .tabs button.selected { color: var(--lp-phosphor); border-color: var(--lp-phosphor); }
+
+/* Secondary record pages share the same dark instrument-panel surfaces. */
+.lancepal :is(.card, .metric, .client-card, .collection-item, .project-summary, .assistant-card, .bottom-note, .split-stats, .comparison-options>div, .scope-compare>div, .soft-sage, .tool-step, .agent-result, .studio-controls, .studio-agent) {
+  background: var(--lp-panel); border-color: var(--lp-line); border-radius: 4px; box-shadow: none;
+}
+.lancepal :is(.card.padded, .padded) { padding: 22px; }
+.lancepal .card { margin-bottom: 18px; }
+.lancepal .page-title { margin-bottom: 22px; }
+.lancepal .page-title h1 { font-family: var(--lp-mono); font-size: 26px; line-height: 1.3; letter-spacing: -.055em; margin-bottom: 8px; }
+.lancepal .page-title p { font-size: 12px; max-width: 720px; }
+.lancepal .card-header { padding: 16px 20px; border-color: var(--lp-line); }
+.lancepal .card-header h2 { font-size: 14px; color: var(--lp-cream); }
+.lancepal .card-header>.muted { color: var(--lp-muted); font-family: var(--lp-mono); font-size: 10px; }
+.lancepal :is(.list-row, .history-row, .activity-row, .milestone-row, .capability-row, .mini-event, .next-move, .project-summary>div, .invoice-line, .invoice-total, .proposal-total, .proposal-items>div, .review-facts>div, .form-actions, hr) { border-color: var(--lp-line); }
+.lancepal :is(.row-title, .list-row strong, .activity-row strong, .milestone-row strong, .capability-row strong, .mini-event strong, .proposal-items strong, .review-facts dd, .invoice-line strong, .history-row>strong, .project-table-row strong, .client-card h2, .collection-item h3) { color: var(--lp-cream); }
+.lancepal :is(.metric>strong, .project-summary strong, .split-stats strong, .proposal-total>strong, .invoice-total>strong, .large-price, .payer-amount, .record-count) { color: var(--lp-cream); font-family: var(--lp-mono); font-variant-numeric: tabular-nums; letter-spacing: -.05em; }
+.lancepal .metric { padding: 19px; }
+.lancepal .metric:hover, .lancepal .client-card:hover { border-color: #566447; background: #1e241c; box-shadow: none; transform: none; }
+.lancepal .metric>strong { font-size: 28px; }
+.lancepal .metric>small { font-size: 10px; }
+.lancepal .metric-label svg { color: var(--lp-muted); }
+.lancepal :is(.task-meta>span:not(.avatar):not(.badge), .list-row>svg:last-child, .activity-row>svg:last-child, .section-heading code, .activity-row p, .activity-row small, .collection-item p, .empty-group, .milestone-row small, .invoice-line small, .small-text, .proposal-paper>p, .approval-step p, .comparison-options p, .review-facts dt, .scope-compare small, .studio-status) { color: var(--lp-muted); }
+.lancepal .project-table-head { color: var(--lp-muted); background: #141813; }
+.lancepal .project-table-row { color: var(--lp-cream); background: var(--lp-panel); border-color: var(--lp-line); }
+.lancepal .project-table-row:hover { background: #242c20; }
+.lancepal :is(.task-icon, .task-icon.sage, .project-glyph, .glyph-0, .glyph-1, .glyph-2, .sparkle-box, .event-icon, .success-mark, .milestone-number, .paper-symbol) { color: var(--lp-phosphor); background: #293421; border-color: #435335; border-radius: 4px; }
+.lancepal .task-icon.amber { color: var(--lp-amber); background: #30291d; }
+.lancepal .event-dot { background: var(--lp-phosphor); }
+.lancepal .arrow-circle { color: var(--lp-muted); border-color: var(--lp-line); background: transparent; }
+.lancepal .arrow-circle:hover { color: var(--lp-phosphor); border-color: #59664a; }
+.lancepal :is(.approval-step>span, .tool-step>span) { color: var(--lp-muted); border-color: var(--lp-line); background: #20261c; }
+.lancepal .approval-step>span.done { color: #172111; background: var(--lp-phosphor); }
+.lancepal :is(.approval-step strong, .comparison-options h3, .scope-compare h3, .soft-sage h2, .soft-sage h3, .assistant-card h2, .bottom-note strong) { color: var(--lp-cream); }
+.lancepal :is(.soft-sage p, .tool-step p) { color: var(--lp-muted); }
+.lancepal :is(.soft-sage>svg, .evidence-link, .excerpt-actions button) { color: var(--lp-phosphor); }
+.lancepal .assistant-card:after { display: none; }
+.lancepal .assistant-card>button { color: var(--lp-cream); border-color: var(--lp-line); background: var(--lp-panel-raised); }
+.lancepal .assistant-card>button:hover { background: #2a3225; }
+.lancepal :is(.empty, .empty>svg) { color: var(--lp-muted); }
+.lancepal .empty h3 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: 16px; }
+.lancepal .empty p { color: var(--lp-muted); font-size: 12px; }
+
+/* Status colors are reserved for meaning, with readable text as well as color. */
+.lancepal .badge { border-radius: 3px; font-family: var(--lp-mono); font-size: 10px; line-height: 1.4; padding: 4px 7px; font-weight: 400; }
+.lancepal .badge.green { color: var(--lp-phosphor); background: #26331f; }
+.lancepal .badge.amber { color: var(--lp-amber); background: #342c1e; }
+.lancepal .badge.red { color: var(--lp-red); background: #38251f; }
+.lancepal .badge.neutral { color: #b8beaa; background: #2a3025; }
+.lancepal :is(.callout, .callout p) { color: #bdc8ae; background: #242d20; border-color: #435335; border-radius: 4px; }
+.lancepal .callout.amber { color: var(--lp-amber); background: #30291d; border-color: #65502d; }
+.lancepal :is(.error-banner, .modal-error) { color: #efb1a0; background: #34231f; border-color: #754b3d; border-radius: 4px; box-shadow: 0 12px 32px #0005; }
+.lancepal .toast { color: var(--lp-phosphor); background: #26321f; border: 1px solid #4b6038; border-radius: 4px; box-shadow: 0 12px 32px #0005; }
+
+/* Review surfaces stay unmistakable; actions are not hidden by the visual refresh. */
+.lancepal dialog { background: var(--lp-panel); color: var(--lp-cream); border-color: var(--lp-line); border-radius: 4px; box-shadow: 0 24px 70px #0009; }
+.lancepal .modal { background: var(--lp-panel); color: var(--lp-cream); border-color: var(--lp-line); border-radius: 4px; padding: 26px; }
+.lancepal dialog::backdrop { background: #080a08b8; backdrop-filter: blur(2px); }
+.lancepal .modal-heading h2 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: 20px; line-height: 1.35; letter-spacing: -.04em; }
+.lancepal .modal p { color: var(--lp-muted); font-size: 12px; }
+.lancepal :is(.assistant-drawer, .search-results, .notification-popover) { background: var(--lp-panel); color: var(--lp-cream); border-color: var(--lp-line); border-radius: 4px; box-shadow: 0 18px 50px #0007; }
+.lancepal :is(.drawer-scrim, .mobile-scrim) { background: #080a08b8; }
+.lancepal :is(.drawer-heading, .search-results .card-header) { color: var(--lp-cream); background: var(--lp-panel); border-color: var(--lp-line); }
+.lancepal .drawer-body h2 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: 23px; letter-spacing: -.04em; }
+.lancepal .search-results>a { color: var(--lp-cream); border-color: var(--lp-line); }
+.lancepal .search-results>a:hover { background: #263021; }
+.lancepal :is(.search-results small, .search-results>p, .notification-popover p) { color: var(--lp-muted); }
+.lancepal .notification-popover>a { color: var(--lp-phosphor); border-color: var(--lp-line); }
+
+/* Recorded evidence uses the same analog palette without inventing live audio. */
+.lancepal :is(.audio-player, .recording-panel) { background: #171c16; border-color: var(--lp-line); border-radius: 4px; }
+.lancepal .audio-file-icon { background: #283521; color: var(--lp-phosphor); border-radius: 4px; }
+.lancepal .audio-player strong { color: var(--lp-cream); }
+.lancepal .play-button { background: var(--lp-phosphor); color: #172111; box-shadow: none; }
+.lancepal .waveform i { background: #3d4932; }
+.lancepal .waveform i.heard { background: var(--lp-phosphor); }
+.lancepal .utterance { border-color: var(--lp-line); }
+.lancepal .utterance.highlight { background: #242e20; border-color: #435335; }
+.lancepal .timestamp { color: var(--lp-amber); background: #30291d; }
+.lancepal .utterance strong { color: var(--lp-cream); }
+.lancepal :is(.utterance strong small, .excerpt-actions>span, .recording-panel p) { color: var(--lp-muted); }
+.lancepal :is(.utterance blockquote, .evidence-quote) { background: #20281c; color: #c4ceb5; border-color: #5a7043; }
+.lancepal .evidence-quote blockquote { color: #c4ceb5; }
+.lancepal .evidence-quote>span { color: var(--lp-phosphor); font-family: var(--lp-mono); }
+.lancepal .proposal-paper>h2 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: 25px; letter-spacing: -.05em; }
+.lancepal .invoice-heading h2 { color: var(--lp-cream); font-family: var(--lp-mono); }
+
+/* Entry and simulated client review remain part of the same product. */
+.lancepal :is(.entry, .portal, .loading-screen) { background: var(--lp-bg); color: var(--lp-cream); }
+.lancepal :is(.entry>header, .portal>header) { border-color: var(--lp-line); }
+.lancepal .entry>header>a { color: var(--lp-muted); font-family: var(--lp-mono); }
+.lancepal .entry h1 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: clamp(36px, 4.4vw, 58px); letter-spacing: -.065em; }
+.lancepal :is(.entry h1 em, .portal-welcome h1 em) { color: var(--lp-phosphor); font-family: inherit; font-style: normal; }
+.lancepal :is(.entry-copy>p, .entry-proof, .entry-copy>.text-link, .entry>footer, .loading-screen p, .loading-card) { color: var(--lp-muted); }
+.lancepal .entry-proof { font-family: var(--lp-mono); font-size: 10px; }
+.lancepal .art-paper { background: var(--lp-panel); color: var(--lp-cream); border-color: var(--lp-line); box-shadow: none; border-radius: 4px; transform: none; }
+.lancepal .art-paper h2 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: 28px; letter-spacing: -.045em; }
+.lancepal .art-step { color: var(--lp-muted); border-color: var(--lp-line); }
+.lancepal .art-step>span { border-color: #526344; color: var(--lp-phosphor); border-radius: 3px; }
+.lancepal .art-step>svg { color: var(--lp-phosphor); }
+.lancepal .paper-total { color: var(--lp-muted); }
+.lancepal .paper-total>span:last-child { color: var(--lp-phosphor); font-family: var(--lp-mono); }
+.lancepal .art-flower { display: none; }
+.lancepal .orbit-label { color: var(--lp-muted); font-family: var(--lp-mono); transform: none; }
+.lancepal .portal-wordmark { color: var(--lp-cream); font-family: var(--lp-mono); letter-spacing: -.06em; }
+.lancepal .portal-welcome h1 { color: var(--lp-cream); font-family: var(--lp-mono); font-size: 36px; line-height: 1.25; letter-spacing: -.055em; }
+.lancepal .portal .card { background: var(--lp-panel); border-color: var(--lp-line); }
+.lancepal .portal .card p { color: var(--lp-muted); }
+.lancepal .portal-totals strong { color: var(--lp-cream); font-family: var(--lp-mono); font-variant-numeric: tabular-nums; }
+.lancepal .portal .success-line { color: var(--lp-phosphor); }
+.lancepal .portal .button.primary { background: var(--lp-phosphor); color: #14200e; border-color: var(--lp-phosphor); }
+.lancepal .portal .badge.green { background: #26331f; color: var(--lp-phosphor); }
+.lancepal .portal .demo-ribbon { color: var(--lp-muted); }
+.lancepal .portal footer { color: var(--lp-muted); border-color: var(--lp-line); }
+.lancepal .portal footer span { font-family: var(--lp-mono); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lancepal *, .lancepal *::before, .lancepal *::after { scroll-behavior: auto; transition-duration: .01ms; animation-duration: .01ms; animation-iteration-count: 1; }
+}
+@media (max-width: 760px) {
+  .lancepal .page-title h1 { font-size: 24px; }
+  .lancepal .card.padded { padding: 18px; }
+  .lancepal .entry h1 { font-size: 36px; }
+  .lancepal .portal-welcome h1 { font-size: 30px; }
+}

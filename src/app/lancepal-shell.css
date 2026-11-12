@@ -1,0 +1,41 @@
+/* Instrument housing: quiet navigation around the working display. */
+.lancepal .desktop-desk-shell { --sidebar: 88px; }
+.lancepal .desktop-desk-shell .sidebar { width:88px; padding:20px 9px 0; background:#151815; border-right:1px solid #363d30; }
+.lancepal .brand-link { padding:0; display:flex; justify-content:center; }
+.lancepal .brand { color:#e8e4ce; letter-spacing:-1px; }
+.lancepal .brand-mark { width:42px; height:42px; border:1px solid #596347; border-radius:7px; display:flex; justify-content:center; align-items:center; font-family:var(--font-mono,monospace); font-size:27px!important; letter-spacing:-6px; padding-right:8px; color:#c4f27a; background:linear-gradient(145deg,#2b3325,#151914); box-shadow:inset 0 1px #8c9a5940,0 3px 5px #0005; }
+.lancepal .brand-mark>span { position:static; font:inherit; padding-top:8px; }
+.lancepal .desktop-desk-shell .sidebar nav { margin-top:38px; gap:9px; }
+.lancepal .desktop-desk-shell .sidebar nav a { border:1px solid transparent; margin:0; padding:12px 2px; font:10px var(--font-mono,monospace); letter-spacing:.15px; color:#929b85; border-radius:4px; }
+.lancepal .desktop-desk-shell .sidebar nav a.active { background:#252e20; color:#c4f27a; border-color:#465239; box-shadow:inset 0 1px #ffffff08; }
+.lancepal .sidebar nav a.active:before { display:none; }
+.lancepal .desktop-desk-shell .sidebar nav a svg { width:18px; height:18px; }
+.lancepal .sidebar-bottom { padding-top:18px; }
+.lancepal .quiet-note { padding:18px 0; }
+.lancepal .quiet-note button,.lancepal .side-setting { color:#a4ad96; font-size:10px; }
+.lancepal .quiet-note kbd { color:#7e896f!important; }
+.lancepal .desktop-desk-shell .profile { display:none; }
+.lancepal .desktop-desk-shell .topbar { height:52px; padding:0 27px; background:#131613; border-bottom:1px solid #30372b; }
+.lancepal .breadcrumb { color:#929c84; gap:16px; font:11px var(--font-mono,monospace); }
+.lancepal .breadcrumb .lancepal-wordmark { font-family:'Manrope',Arial,sans-serif; font-size:23px; font-weight:800; letter-spacing:-1.4px; color:#e8e4ce; }
+.lancepal .lancepal-wordmark>span { font:9px var(--font-mono,monospace); color:#8e9b78; position:relative; top:-9px; margin-left:4px; }
+.lancepal .topbar-actions { gap:14px; }
+.lancepal .topbar-actions>.notification-button,.lancepal .topbar-actions>.topbar-divider,.lancepal .topbar-actions>.avatar { display:none; }
+.lancepal .mode-pill { background:none; border:0; padding:0; font:9px var(--font-mono,monospace); letter-spacing:1px; color:#a4ae92; }
+.lancepal .mode-pill i { background:#c4f27a; box-shadow:0 0 5px #c4f27a40; }
+.lancepal .global-search { display:none!important; }
+.lancepal .global-search.is-open { display:flex!important; position:absolute; right:26px; top:60px; width:380px; z-index:80; padding:16px; background:#22291f; border:1px solid #596347; border-radius:4px; box-shadow:0 15px 45px #0009; }
+.lancepal .global-search input { width:100%; color:#e8e4ce; font-size:12px; }
+.lancepal .global-search .search-results { top:50px; width:100%; left:0; background:#1b2118; border:1px solid #596347; }
+.lancepal .desktop-desk-shell .main-content { padding:15px 27px 0; min-height:calc(100vh - 52px); }
+.lancepal .desktop-desk-shell.is-workbench .main-content { padding:12px 24px 0; }
+.lancepal .desktop-desk-shell .demo-ribbon,.lancepal .desktop-desk-shell.is-workbench .demo-ribbon { margin:0 0 14px; padding:0 0 10px; border-bottom:1px solid #2b3226; font:9px var(--font-mono,monospace); letter-spacing:.2px; color:#8e987f; }
+.lancepal .demo-ribbon .status-dot { background:#e7b765; }
+.lancepal .demo-ribbon a { color:#9ca889; font-size:9px; }
+.lancepal .desktop-desk-shell .page-footer { padding:16px 0; margin-top:24px; font:9px var(--font-mono,monospace); color:#77816c; }
+.lancepal .desktop-desk-shell.is-workbench .page-footer { display:none; }
+.lancepal .footer-flower { display:none; }
+.lancepal .record-directory { gap:12px; }
+.lancepal .record-directory .card { padding:20px; }
+.lancepal .record-count { font:25px var(--font-mono,monospace); color:#c4f27a; }
+@media(max-width:760px){.lancepal .desktop-desk-shell{--sidebar:0px}.lancepal .desktop-desk-shell .sidebar{width:220px}.lancepal .desktop-desk-shell .main-content,.lancepal .desktop-desk-shell.is-workbench .main-content{padding:14px}.lancepal .desktop-desk-shell .topbar{padding:0 16px}.lancepal .breadcrumb{gap:9px}.lancepal .mode-pill{font-size:7px;letter-spacing:0}.lancepal .global-search.is-open{right:12px;width:calc(100vw - 24px)}.lancepal .sidebar .brand>span:last-child{display:block}.lancepal .desktop-desk-shell .sidebar nav a{flex-direction:row;font-size:12px}}

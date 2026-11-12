@@ -1,0 +1,23 @@
+import { NextResponse } from 'next/server';
+import { publicModelConfiguration } from '@/lib/server/model-config';
+import { sandboxRepository } from '@/lib/server/sandbox-repository';
+import { sandboxWebhookStatus } from '@/lib/server/sandbox-webhooks';
+export const dynamic = 'force-dynamic';
+export async function GET() {
+  const model = publicModelConfiguration();
+  const webhook = await sandboxRepository().read().then(sandboxWebhookStatus).catch(() => undefined);
+  const status = (...keys: string[]) => keys.every(k => !!process.env[k]) ? 'Configured, not tested' : 'Not configured';
+  return NextResponse.json({ mode: 'demo', connectedEnabled: false, sandboxEnabled: true, sandboxMode: 'paypal-sandbox', model, commandProviders: { modelConfigured: model.configured, speechConfigured: !!process.env.ASSEMBLYAI_API_KEY, financialMode: 'demo-simulated-with-separate-paypal-sandbox', speechMode: 'recorded-command' }, checkedAt: new Date().toISOString(), capabilities: [
+    { id: 'grid', name: 'AG Grid Community', status: 'Installed', detail: 'Actual operational table component, not an imitation. Community features only.' },
+    { id: 'studio', name: 'AG Studio', status: process.env.NEXT_PUBLIC_AG_STUDIO_LICENSE_KEY ? 'License configured, not tested' : 'Local evaluation', detail: 'Actual Studio canvas and custom widgets. Commercial/trial license required for deployment as applicable.' },
+    { id: 'stt', name: 'AssemblyAI recorded transcription', status: status('ASSEMBLYAI_API_KEY'), detail: 'The Desk can send short command recordings to AssemblyAI, then lets you review the returned text. Conversation fixtures remain synthetic. This inventory does not verify the provider.' },
+    { id: 'live', name: 'AssemblyAI live speech-to-text', status: status('ASSEMBLYAI_API_KEY'), detail: 'Recorded command transcription and typed fallback are available on the Desk. Streaming transcription is not integrated.' },
+    { id: 'tts', name: 'Spoken assistant responses', status: 'Not integrated', detail: 'Optional expansion. No TTS verification claimed.' },
+    { id: 'model', name: 'Nebius model tool calling', status: model.status, detail: `Selected ${model.provider} · ${model.model}. Console offers live Nebius view/review tools alongside a local Demo interpreter. Funding separately offers natural-language Nebius navigation/payment inspection and signed source-bound draft previews, followed by explicit preparation. Model output cannot approve, send, or mark payment; all sandbox sends retain separate exact-version review. Demo records stay simulated. This inventory makes no live request.` },
+    { id: 'invoice', name: 'PayPal sandbox invoice creation', status: status('PAYPAL_CLIENT_ID', 'PAYPAL_CLIENT_SECRET'), detail: 'Open /sandbox for a separate server-side test ledger: exact-version review, create/send, hosted payer link, provider refresh and original-operation reconciliation. Fixed sandbox host only; this inventory does not verify a transaction.' },
+    { id: 'project-funding', name: 'PayPal sandbox project journey', status: 'Local sandbox workflow', detail: 'Open /sandbox/projects for a separate agreement → deposit → approved change → delivery acceptance → final invoice journey. Funding is derived from bound PayPal invoices and updates with verified collections. Test decisions are recorded by the local operator, not authenticated client signatures. Demo history and standalone payments never fund these projects.' },
+    { id: 'payer', name: 'PayPal payer collection', status: 'Not verified', detail: 'Demo retains its local simulator. Sandbox collection is read from PayPal invoice details; checkout return and manual/offline entries do not count as payment proof.' },
+    { id: 'webhooks', name: 'PayPal sandbox webhooks', status: webhook ? webhook.listenerState === 'active' ? 'Listener active' : webhook.listenerState === 'offline' ? 'Worker offline' : 'Listener stopped' : 'Ledger unavailable', detail: 'A webhook-only HTTPS relay accepts verified PayPal sandbox events into a persistent inbox. The worker re-reads existing invoices from PayPal; the sandbox AG Grid reads the local ledger every 3 seconds while visible. Run npm run paypal:webhooks alongside the app. Event payloads never authorize payment state.' },
+    { id: 'database', name: 'Connected PostgreSQL & authentication', status: status('DATABASE_URL', 'SESSION_SECRET'), detail: 'Demo uses browser persistence; local PayPal sandbox uses an isolated atomic JSON ledger. PostgreSQL remains deferred; production authentication and multi-host persistence are not implemented.' },
+  ] }, { headers: { 'Cache-Control': 'no-store' } });
+}
